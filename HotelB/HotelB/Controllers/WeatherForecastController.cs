@@ -1,3 +1,5 @@
+using HotelB.DataContext.Entities;
+using HotelB.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelB.Controllers
@@ -12,10 +14,12 @@ namespace HotelB.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IUserServices _userServices;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IUserServices userServices)
         {
             _logger = logger;
+            _userServices = userServices;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -29,5 +33,12 @@ namespace HotelB.Controllers
             })
             .ToArray();
         }
+        [HttpGet("GetUser/{id:int}")]
+        public async Task<ActionResult> GetUserById(int id)
+        {
+            return Ok(await _userServices.GetUser(id));
+        }
+
+
     }
 }
