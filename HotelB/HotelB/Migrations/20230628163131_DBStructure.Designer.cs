@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HotelB.Migrations
 {
-    [DbContext(typeof(AplicationDBContext))]
+    [DbContext(typeof(ApplicationDBContext))]
     [Migration("20230628163131_DBStructure")]
     partial class DBStructure
     {

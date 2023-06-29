@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HotelB.Migrations
 {
-    [DbContext(typeof(AplicationDBContext))]
+    [DbContext(typeof(ApplicationDBContext))]
     [Migration("20230628185146_user")]
     partial class user
     {

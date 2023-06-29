@@ -8,9 +8,9 @@ namespace HotelB.Service
 {
     public class UserService : IUserService
     {
-        private readonly AplicationDBContext _context;
+        private readonly ApplicationDBContext _context;
 
-        public UserService(AplicationDBContext context)
+        public UserService(ApplicationDBContext context)
         {
             _context = context;
         }
