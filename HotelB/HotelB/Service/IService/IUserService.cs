@@ -1,10 +1,17 @@
 ﻿using HotelB.DataContext.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HotelB.Services.IServices
+namespace HotelB.Service
 {
-    public interface IUserServices
+    public interface IUserService
     {
+
         Task<ActionResult<User>> GetUser(int id);
+
+
+
+
     }
+
+
 }

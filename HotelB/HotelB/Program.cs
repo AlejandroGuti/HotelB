@@ -1,12 +1,11 @@
 using HotelB.DataContext;
-using HotelB.Services;
-using HotelB.Services.IServices;
+using HotelB.Service;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //IServices
-builder.Services.AddTransient<IUserServices, UserServices>();
+builder.Services.AddTransient<IUserService, IUserService>();
 
 // Add services to the container.
 

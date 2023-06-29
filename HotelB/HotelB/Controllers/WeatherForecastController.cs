@@ -1,5 +1,4 @@
-using HotelB.DataContext.Entities;
-using HotelB.Services.IServices;
+using HotelB.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelB.Controllers
@@ -14,9 +13,9 @@ namespace HotelB.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IUserServices _userServices;
+        private readonly IUserService _userServices;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IUserServices userServices)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IUserService userServices)
         {
             _logger = logger;
             _userServices = userServices;

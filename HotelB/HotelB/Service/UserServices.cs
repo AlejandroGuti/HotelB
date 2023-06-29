@@ -1,12 +1,12 @@
 ﻿using HotelB.DataContext;
 using HotelB.DataContext.Entities;
-using HotelB.Services.IServices;
+using HotelB.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace HotelB.Services
+namespace HotelB.Service
 {
-    public class UserServices : IUserServices
+    public class UserServices : IUserService
     {
         private readonly AplicationDBContext _context;
 
@@ -19,10 +19,10 @@ namespace HotelB.Services
         {
             var User = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
             return User;
-        //    .Include(x => x.Books).FirstOrDefaultAsync(x => x.Id == id);
-        //if (autor is null)
-        //    return NotFound();
-        //return autor;
+            //    .Include(x => x.Books).FirstOrDefaultAsync(x => x.Id == id);
+            //if (autor is null)
+            //    return NotFound();
+            //return autor;
         }
 
 
