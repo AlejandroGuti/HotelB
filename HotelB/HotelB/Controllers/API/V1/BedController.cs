@@ -1,4 +1,7 @@
-﻿using HotelB.Common.Response;
+﻿using Azure;
+using HotelB.Common.DTO;
+using HotelB.Common.Response;
+using HotelB.DataContext.Entities;
 using HotelB.Service;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection.Metadata.Ecma335;
@@ -39,10 +42,29 @@ namespace HotelB.Controllers.API.V1
                 return BadRequest(ex.Message);
             }
         }
-        //[HttpPost]
-        //public async Task<IActionResult> CreateBed()
-        //{
+        [HttpPost("CreateBed")]
+        public async Task<IActionResult> CreateBed(CreateBed bed)
+        {
+            try
+            {
+                var response =await _bedService.CreateBed(bed);
+                if (response.Value.IsSuccess)
+                {
+                    return Ok(response);
+                }
+                else
+                {
+                    return BadRequest(response);
+                }
 
-        //}
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+
+        }
     }
 }

@@ -8,6 +8,7 @@
         public bool IsActive { get; set; }
         public ICollection <Bed> Beds { get; set; }
         public ICollection<RoomReservation> RoomReservations { get; set; }
+        public ICollection<RoomBed> RoomBed { get; set; }
         //public Hotel Hotel { get; set; }
     }
 }

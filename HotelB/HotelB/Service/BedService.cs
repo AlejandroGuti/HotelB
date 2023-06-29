@@ -1,4 +1,5 @@
 ﻿
+using HotelB.Common.DTO;
 using HotelB.Common.Response;
 using HotelB.DataContext;
 using HotelB.DataContext.Entities;
@@ -38,6 +39,42 @@ namespace HotelB.Service
                 };
 
             }
+
+        }
+        public async Task<ActionResult<Response>> CreateBed(CreateBed bed)
+        {
+
+            var bed1 = await _context.Beds.AnyAsync(x => x.Size == bed.Size);
+
+
+
+            if (!bed1)
+            {
+                Bed bed2 = new Bed
+                {
+                    Size = bed.Size,
+                    IsActive = true,
+                    Mark = "x"
+                };
+                _context.Add(bed2);
+                var k= await _context.SaveChangesAsync();
+                return new Response
+                {
+                    IsSuccess = true,
+                    Message = "Created",
+                    Result = k
+                };
+            }
+            else
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = "Not Created",
+                    Result = null
+                };
+            }
+
 
         }
     }
