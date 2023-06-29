@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 //IServices
-builder.Services.AddTransient<IUserService, IUserService>();
+builder.Services.AddTransient<IUserService, UserService>();
 
 // Add services to the container.
 
@@ -28,6 +28,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
 
 app.UseAuthorization();
 

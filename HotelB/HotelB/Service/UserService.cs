@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelB.Service
 {
-    public class UserServices : IUserService
+    public class UserService : IUserService
     {
         private readonly AplicationDBContext _context;
 
-        public UserServices(AplicationDBContext context)
+        public UserService(AplicationDBContext context)
         {
             _context = context;
         }
